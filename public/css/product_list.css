@@ -1,0 +1,272 @@
+body{
+    background-color: rgb(17, 24, 39);
+    color: white;
+}
+.table-container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(31, 41, 55);
+    border-radius: 10px;
+}
+.table-content{
+    margin-top: 50px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    color: white;
+}
+table,
+th,
+tr,
+td{
+    border: 1px solid;
+    border-color: black;
+}
+th{
+    background-color: gray;
+    padding: 1rem;
+}
+td{
+    padding: 1rem;
+}
+
+td img {
+    display: block;
+    margin: 0 auto;
+}
+
+.container-nav {
+    background-color: rgb(31, 41, 55);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.container-nav .content-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 100px;
+}
+
+.content-nav .search-form{
+    align-items: center;
+    display: flex;
+}
+
+/* .search-form{
+    display: inline-flex !important;
+    position: absolute;
+    top: 70px;
+    right: 200px;
+    border-radius: 5px;
+} */
+
+.search-form{
+    position: absolute;
+    top: 70px;
+    right: 20px;
+}
+
+.input-style{
+    color: black;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.content-nav h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.home_btn{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    border-radius: 5px;
+}
+
+button,
+/* button[type="submit"], */
+.button-style
+{
+    padding: 10px 20px;
+    background-color: #3490dc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.btn-delete{
+    background-color: red;
+}
+
+.disabled-button {
+    background-color: #ddd;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+} */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea,
+select{
+    color: black;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* margin-bottom: 10px; */
+}
+
+.product-listing {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.product-listing-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: rgb(31, 41, 55);;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+/* .product-image img {
+    max-width: 100%;
+    height: auto;
+} */
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Set your desired fixed height here */
+    /* Ensure the image does not overflow the container */
+    overflow: hidden;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
+.product-details h3 {
+    margin: 10px 0;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(31, 41, 55);
+    border-radius: 10px;
+} */
+
+
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    white-space: nowrap;
+    margin-right: 30px;
+    width: 40%;
+}
+
+.error-message {
+    color: #dc3545;
+    padding: 5px;
+}
+
+.disabled {
+    color: white;
+}
+
+.readonly{
+    background-color: rgb(35, 46, 67);
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.form-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-column {
+    flex: 0 0 calc(50% - 20px);
+    width: 50%;
+}
+
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    display: inline;
+    margin-right: 50px;
+}
+
+.list li::before {
+    content: "• "; /* Add a bullet symbol before each list item */
+}

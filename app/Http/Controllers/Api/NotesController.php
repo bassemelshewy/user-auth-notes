@@ -34,14 +34,9 @@ class NotesController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         try {
-            $request->validate([
-                'title' => 'required|string|max:100|unique:notes,title,NULL,id,user_id,' . auth()->id(),
-                'content' => 'required|string|min:10|max:100',
-            ]);
-
             $inputs = [
                 'title' => $request->title,
                 'content' => $request->content,
@@ -54,16 +49,11 @@ class NotesController extends Controller
                 'message' => 'Note created successfully',
                 'note' => $note,
             ]);
-        }catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Validation error',
-                'errors' => $e->errors(),
-            ], 422);
         }catch (\Exception $e){
             return response()->json([
                 'status' => 'error',
                 'message' => 'Something went wrong',
+                'error' => $e->getMessage(),
             ], 500);
         }
     }
@@ -89,13 +79,17 @@ class NotesController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         try {
-            $request->validate([
-                'title' => 'required|string|unique:notes,title,' . $id . ',id,user_id,' . auth()->id(),
-                'content' => 'required|string|min:10|max:1000',
-            ]);
+            $note = $this->note->show($id);
+
+            if ($note->user_id !== auth()->id()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Unauthorized access to this note',
+                ], 403);
+            }
 
             $inputs = [
                 'title' => $request->title,
@@ -109,12 +103,6 @@ class NotesController extends Controller
                 'message' => 'Note updated successfully',
                 'note' => $note,
             ]);
-        }catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Validation error',
-                'errors' => $e->errors(),
-            ], 422);
         }catch (ModelNotFoundException $e) {
             return response()->json([
                 'status' => 'error',

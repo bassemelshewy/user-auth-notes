@@ -29,7 +29,7 @@ class NoteEloquent implements NoteInterface
 
     public function update(int $id, array $data)
     {
-        $note = $this->note->findOrFail($id);
+        $note = $this->show($id);
         $note->update($data);
         return $note;
     }
